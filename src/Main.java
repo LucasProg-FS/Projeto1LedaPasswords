@@ -35,6 +35,7 @@ public class Main {
         QuickSort quickSort = new QuickSort();
         MergeSort mergeSort = new MergeSort();
         CountingSort countingSort = new CountingSort();
+        HeapSort heapSort = new HeapSort();
 
         System.out.println("Inicializando ordenações...\n\n");
 
@@ -58,10 +59,15 @@ public class Main {
 //        mergeSort.length(mediumCaseByLength, "médio caso");
 //        mergeSort.length(worstCaseByLength, "pior caso");
 
-        System.out.println("CountingSort P/ Tamanho da Senha:");
-        countingSort.length(bestCaseByLength, "melhor caso");
-        countingSort.length(mediumCaseByLength, "médio caso");
-        countingSort.length(worstCaseByLength, "pior caso");
+//        System.out.println("CountingSort P/ Tamanho da Senha:");
+//        countingSort.length(bestCaseByLength, "melhor caso");
+//        countingSort.length(mediumCaseByLength, "médio caso");
+//        countingSort.length(worstCaseByLength, "pior caso");
+
+        System.out.println("HeapSort P/ Tamanho da Senha:");
+        heapSort.length(bestCaseByLength, "melhor caso");
+        heapSort.length(mediumCaseByLength, "médio caso");
+        heapSort.length(worstCaseByLength, "pior caso");
 
 //        System.out.println("\nSelectionSort P/ Mês:");
 //        selectionSort.month(bestCaseByMonth, "melhor caso");
@@ -83,10 +89,15 @@ public class Main {
 //        mergeSort.month(mediumCaseByMonth, "médio caso");
 //        mergeSort.month(worstCaseByMonth, "pior caso");
 
-        System.out.println("\nCountingSort P/ Mês:");
-        countingSort.month(bestCaseByMonth, "melhor caso");
-        countingSort.month(mediumCaseByMonth, "médio caso");
-        countingSort.month(worstCaseByMonth, "pior caso");
+//        System.out.println("\nCountingSort P/ Mês:");
+//        countingSort.month(bestCaseByMonth, "melhor caso");
+//        countingSort.month(mediumCaseByMonth, "médio caso");
+//        countingSort.month(worstCaseByMonth, "pior caso");
+
+        System.out.println("\nHeapSort P/ Mês:");
+        heapSort.month(bestCaseByMonth, "melhor caso");
+        heapSort.month(mediumCaseByMonth, "médio caso");
+        heapSort.month(worstCaseByMonth, "pior caso");
 
 //        System.out.println("\nSelectionSort P/ Data:");
 //        selectionSort.date(bestCaseByDate, "melhor caso");
@@ -108,9 +119,14 @@ public class Main {
 //        mergeSort.date(mediumCaseByDate, "médio caso");
 //        mergeSort.date(worstCaseByDate, "pior caso");
 
-        System.out.println("\nCountingSort P/ Data:");
-        countingSort.date(bestCaseByDate, "melhor caso");
-        countingSort.date(mediumCaseByDate, "médio caso");
-        countingSort.date(worstCaseByDate, "pior caso");
+//        System.out.println("\nCountingSort P/ Data:");
+//        countingSort.date(bestCaseByDate, "melhor caso");
+//        countingSort.date(mediumCaseByDate, "médio caso");
+//        countingSort.date(worstCaseByDate, "pior caso");
+
+        System.out.println("\nHeapSort P/ Data:");
+        heapSort.date(bestCaseByDate, "melhor caso");
+        heapSort.date(mediumCaseByDate, "médio caso");
+        heapSort.date(worstCaseByDate, "pior caso");
     }
 }
