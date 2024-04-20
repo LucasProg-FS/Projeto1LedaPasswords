@@ -12,7 +12,6 @@ public class CreateCasesByMonth {
         String[] partesData = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split("/");
         return Integer.parseInt(partesData[1]);
     });
-
     Comparator<String> comparadorMesDataDecrescente = Comparator.comparingInt((String str) -> {
         String[] partesData = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split("/");
         return Integer.parseInt(partesData[1]);
@@ -33,7 +32,7 @@ public class CreateCasesByMonth {
     }
 
     public String[] readDataToArray() {
-        try (BufferedReader br = new BufferedReader(new FileReader("dataset/passwords_formated_data.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("dataset/passwords_test.csv"))) {
             br.readLine();
 
             int numLines = 0;
@@ -46,7 +45,7 @@ public class CreateCasesByMonth {
 
             br.close();
 
-            BufferedReader br2 = new BufferedReader(new FileReader("dataset/passwords_formated_data.csv"));
+            BufferedReader br2 = new BufferedReader(new FileReader("dataset/passwords_test.csv"));
 
             br2.readLine();
 

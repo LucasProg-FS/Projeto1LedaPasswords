@@ -12,8 +12,6 @@ public class CreateCasesByDate {
         String[] partesData = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split(" ")[0].split("/");
         return Integer.parseInt(partesData[2]) * 10000 + Integer.parseInt(partesData[1]) * 100 + Integer.parseInt(partesData[0]);
     });
-
-
     Comparator<String> comparadorDataCompletaDecrescente = Comparator.comparing((String str) -> {
         String[] partesData = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split(" ")[0].split("/");
         return Integer.parseInt(partesData[2]) * 10000 + Integer.parseInt(partesData[1]) * 100 + Integer.parseInt(partesData[0]);
@@ -34,7 +32,7 @@ public class CreateCasesByDate {
     }
 
     public String[] readDataToArray() {
-        try (BufferedReader br = new BufferedReader(new FileReader("dataset/passwords_formated_data.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("dataset/passwords_test.csv"))) {
             br.readLine();
 
             int numLines = 0;
@@ -47,7 +45,7 @@ public class CreateCasesByDate {
 
             br.close();
 
-            BufferedReader br2 = new BufferedReader(new FileReader("dataset/passwords_formated_data.csv"));
+            BufferedReader br2 = new BufferedReader(new FileReader("dataset/passwords_test.csv"));
 
             br2.readLine();
 

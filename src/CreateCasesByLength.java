@@ -19,8 +19,6 @@ public class CreateCasesByLength {
         }
         return Integer.parseInt(partes[2]);
     });
-
-
     Comparator<String> comparadorTamanhoSenhaDecrescente = Comparator.comparingInt((String str) -> {
         if (str == null) {
             return 0;
@@ -47,7 +45,7 @@ public class CreateCasesByLength {
     }
 
     public String[] readDataToArray() {
-        try (BufferedReader br = new BufferedReader(new FileReader("dataset/passwords_formated_data.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("dataset/passwords_test.csv"))) {
             br.readLine();
 
             int numLines = 0;
@@ -60,7 +58,7 @@ public class CreateCasesByLength {
 
             br.close();
 
-            BufferedReader br2 = new BufferedReader(new FileReader("dataset/passwords_formated_data.csv"));
+            BufferedReader br2 = new BufferedReader(new FileReader("dataset/passwords_test.csv"));
 
             br2.readLine();
 
@@ -68,7 +66,6 @@ public class CreateCasesByLength {
             while ((line = br2.readLine()) != null) {
                 dataArray[index++] = line;
             }
-
 
             return dataArray;
         } catch (IOException e) {
