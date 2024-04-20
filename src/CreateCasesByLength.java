@@ -1,13 +1,9 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class CreateCasesByLength {
-
-    String[] data = readDataToArray();
-
+    GetVariables csvToArray = new GetVariables();
+    String[] data = csvToArray.readDataToArray();
 
     Comparator<String> comparadorTamanhoSenhaCrescente = Comparator.comparingInt((String str) -> {
         if (str == null) {
@@ -35,43 +31,13 @@ public class CreateCasesByLength {
         Arrays.sort(dataTransforming, comparadorTamanhoSenhaDecrescente);
         return dataTransforming;
     }
-    public  String[] mediumCase() {
+    public String[] mediumCase() {
         return data;
     }
     public String[] worstCase() {
         String[] dataTransforming = Arrays.copyOf(data, data.length);
         Arrays.sort(dataTransforming, comparadorTamanhoSenhaCrescente);
         return dataTransforming;
-    }
-
-    public String[] readDataToArray() {
-        try (BufferedReader br = new BufferedReader(new FileReader("dataset/passwords_test.csv"))) {
-            br.readLine();
-
-            int numLines = 0;
-            String line;
-            while ((line = br.readLine()) != null) {
-                numLines++;
-            }
-
-            String[] dataArray = new String[numLines];
-
-            br.close();
-
-            BufferedReader br2 = new BufferedReader(new FileReader("dataset/passwords_test.csv"));
-
-            br2.readLine();
-
-            int index = 0;
-            while ((line = br2.readLine()) != null) {
-                dataArray[index++] = line;
-            }
-
-            return dataArray;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new String[0];
-        }
     }
 
 }

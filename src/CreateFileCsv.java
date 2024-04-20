@@ -10,8 +10,6 @@ public class CreateFileCsv {
             for (String dado : data) {
                 writer.append(parseLinhaParaCSV(dado)).append("\n");
             }
-
-            // System.out.println("Arquivo CSV gerado com sucesso: " + filename);
         } catch (IOException e) {
             System.out.println("Ocorreu um erro ao gerar o arquivo CSV.");
             e.printStackTrace();
