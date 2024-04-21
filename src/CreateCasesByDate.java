@@ -5,18 +5,18 @@ public class CreateCasesByDate {
     GetVariables csvToArray = new GetVariables();
     String[] data = csvToArray.readDataToArray();
 
-    Comparator<String> comparadorDataCompletaCrescente = Comparator.comparing((String str) -> {
-        String[] partesData = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split(" ")[0].split("/");
-        return Integer.parseInt(partesData[2]) * 10000 + Integer.parseInt(partesData[1]) * 100 + Integer.parseInt(partesData[0]);
+    Comparator<String> comparatorDateCrescent = Comparator.comparing((String str) -> {
+        String[] piecesDate = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split(" ")[0].split("/");
+        return Integer.parseInt(piecesDate[2]) * 10000 + Integer.parseInt(piecesDate[1]) * 100 + Integer.parseInt(piecesDate[0]);
     });
-    Comparator<String> comparadorDataCompletaDecrescente = Comparator.comparing((String str) -> {
-        String[] partesData = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split(" ")[0].split("/");
-        return Integer.parseInt(partesData[2]) * 10000 + Integer.parseInt(partesData[1]) * 100 + Integer.parseInt(partesData[0]);
+    Comparator<String> comparatorDateDecreasing = Comparator.comparing((String str) -> {
+        String[] piecesDate = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split(" ")[0].split("/");
+        return Integer.parseInt(piecesDate[2]) * 10000 + Integer.parseInt(piecesDate[1]) * 100 + Integer.parseInt(piecesDate[0]);
     }).reversed();
 
     public String[] bestCase() {
         String[] dataTransforming = Arrays.copyOf(data, data.length);
-        Arrays.sort(dataTransforming, comparadorDataCompletaCrescente);
+        Arrays.sort(dataTransforming, comparatorDateCrescent);
         return dataTransforming;
     }
     public String[] mediumCase() {
@@ -24,7 +24,7 @@ public class CreateCasesByDate {
     }
     public String[] worstCase() {
         String[] dataTransforming = Arrays.copyOf(data, data.length);
-        Arrays.sort(dataTransforming, comparadorDataCompletaDecrescente);
+        Arrays.sort(dataTransforming, comparatorDateDecreasing);
         return dataTransforming;
     }
 }

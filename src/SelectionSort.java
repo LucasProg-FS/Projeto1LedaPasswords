@@ -29,9 +29,9 @@ public class SelectionSort {
         System.out.println("Tempo de execução SelectionSort p/ o " + nameCase + ": " + duration + " milissegundos");
         String filename = "";
 
-        if(nameCase == "melhor caso") {
+        if(nameCase.equals("melhor caso")) {
             filename = "dataset/passwords_length_selectionSort_melhorCaso.csv";
-        } else if (nameCase == "médio caso" ){
+        } else if (nameCase.equals("médio caso")){
             filename = "dataset/passwords_length_selectionSort_medioCaso.csv";
         } else {
             filename = "dataset/passwords_length_selectionSort_piorCaso.csv";

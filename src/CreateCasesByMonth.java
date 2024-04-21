@@ -5,18 +5,18 @@ public class CreateCasesByMonth {
     GetVariables csvToArray = new GetVariables();
     String[] data = csvToArray.readDataToArray();
 
-    Comparator<String> comparadorMesDataCrescente = Comparator.comparingInt((String str) -> {
-        String[] partesData = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split("/");
-        return Integer.parseInt(partesData[1]);
+    Comparator<String> comparadorMonthCrescent = Comparator.comparingInt((String str) -> {
+        String[] piecesDate = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split("/");
+        return Integer.parseInt(piecesDate[1]);
     });
-    Comparator<String> comparadorMesDataDecrescente = Comparator.comparingInt((String str) -> {
-        String[] partesData = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split("/");
-        return Integer.parseInt(partesData[1]);
+    Comparator<String> comparadorMonthDecreasing = Comparator.comparingInt((String str) -> {
+        String[] piecesDate = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)[3].split("/");
+        return Integer.parseInt(piecesDate[1]);
     }).reversed();
 
     public String[] bestCase() {
         String[] dataTransforming = Arrays.copyOf(data, data.length);
-        Arrays.sort(dataTransforming, comparadorMesDataCrescente);
+        Arrays.sort(dataTransforming, comparadorMonthCrescent);
         return dataTransforming;
     }
     public String[] mediumCase() {
@@ -24,7 +24,7 @@ public class CreateCasesByMonth {
     }
     public String[] worstCase() {
         String[] dataTransforming = Arrays.copyOf(data, data.length);
-        Arrays.sort(dataTransforming, comparadorMesDataDecrescente);
+        Arrays.sort(dataTransforming, comparadorMonthDecreasing);
         return dataTransforming;
     }
 

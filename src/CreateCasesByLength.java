@@ -5,30 +5,30 @@ public class CreateCasesByLength {
     GetVariables csvToArray = new GetVariables();
     String[] data = csvToArray.readDataToArray();
 
-    Comparator<String> comparadorTamanhoSenhaCrescente = Comparator.comparingInt((String str) -> {
+    Comparator<String> comparatorLengthPasswordCrescent = Comparator.comparingInt((String str) -> {
         if (str == null) {
-            return 0; // Ou algum outro valor padrão, dependendo do seu requisito
+            return 0;
         }
-        String[] partes = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-        if (partes.length < 3) {
-            return 0; // Ou algum outro valor padrão, dependendo do seu requisito
+        String[] pieces = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+        if (pieces.length < 3) {
+            return 0;
         }
-        return Integer.parseInt(partes[2]);
+        return Integer.parseInt(pieces[2]);
     });
-    Comparator<String> comparadorTamanhoSenhaDecrescente = Comparator.comparingInt((String str) -> {
+    Comparator<String> comparatorLengthPasswordDecreasing = Comparator.comparingInt((String str) -> {
         if (str == null) {
             return 0;
         }
-        String[] partes = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-        if (partes.length < 3) {
+        String[] pieces = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+        if (pieces.length < 3) {
             return 0;
         }
-        return Integer.parseInt(partes[2]);
+        return Integer.parseInt(pieces[2]);
     }).reversed();
 
     public String[] bestCase() {
         String[] dataTransforming = Arrays.copyOf(data, data.length);
-        Arrays.sort(dataTransforming, comparadorTamanhoSenhaDecrescente);
+        Arrays.sort(dataTransforming, comparatorLengthPasswordDecreasing);
         return dataTransforming;
     }
     public String[] mediumCase() {
@@ -36,7 +36,7 @@ public class CreateCasesByLength {
     }
     public String[] worstCase() {
         String[] dataTransforming = Arrays.copyOf(data, data.length);
-        Arrays.sort(dataTransforming, comparadorTamanhoSenhaCrescente);
+        Arrays.sort(dataTransforming, comparatorLengthPasswordCrescent);
         return dataTransforming;
     }
 
